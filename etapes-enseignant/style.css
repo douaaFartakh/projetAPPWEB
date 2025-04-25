@@ -1,0 +1,168 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-image: url("background-image.png");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-attachment: fixed;
+  background-size: cover;
+  color: #ffffff;
+}
+
+header {
+  background-color: rgba(212, 157, 245, 0.7);
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 20px;
+}
+
+.logo-section {
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  height: 80px;
+  width: 80px;
+  object-fit: cover;
+  border-radius: 50%;
+  box-shadow: 0 0 10px 3px #de75f1;
+  margin-right: 20px;
+}
+
+.site-name {
+  font-size: 2.55em;
+  color: #6a1b9a;
+}
+
+.nav-top {
+  display: flex;
+  align-items: flex-start;
+  padding-top: 30px;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 30px;
+}
+
+.nav-links > li {
+  position: relative;
+}
+
+.nav-links > li > a {
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1.4em;
+  transition: color 0.3s ease;
+  padding: 8px 12px;
+  border-radius: 6px;
+  text-decoration: underline;
+}
+
+.nav-links > li > a:hover {
+  color: #6a1b9a;
+}
+
+/* Main Section */
+.main-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px 60px;
+  gap: 50px;
+}
+
+.section-title {
+  text-align: center;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.section-title h1 {
+  font-size: 2.5em;
+  color: #6a1b9a;
+  font-weight: 700;
+  text-shadow: 1px 1px 5px rgba(95, 94, 94, 0.1);
+}
+
+.etape-section {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 1200px;
+  background-color: #ffffffa0;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(89, 89, 89, 0.66);
+  padding: 30px;
+  gap: 30px;
+}
+
+.etape-section.reverse {
+  flex-direction: row-reverse;
+}
+
+.etape-image {
+  flex: 1;
+  max-width: 500px;
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.etape-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 15px;
+}
+
+.etape-content h2 {
+  font-size: 2em;
+  color: #17101c;
+  margin-bottom: 10px;
+}
+
+.etape-content p {
+  font-size: 1.1em;
+  color: #666;
+  line-height: 1.6;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .main-section {
+    padding: 20px;
+  }
+
+  .etape-section {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .etape-section.reverse {
+    flex-direction: column;
+  }
+
+  .etape-image {
+    max-width: 100%;
+  }
+
+  .etape-content {
+    text-align: center;
+  }
+
+  .section-title h1 {
+    font-size: 2em;
+  }
+}
