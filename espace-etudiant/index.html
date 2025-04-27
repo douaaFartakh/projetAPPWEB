@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="shortcut icon" href="iconimage.png" type="image/png" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="style.css" />
+  <title>FoxMind - Espace Étudiant</title>
+</head>
+<body>
+  <header>
+    <div class="logo-section">
+      <img src="iconimage.png" alt="Logo" class="logo" />
+      <h1 class="site-name">FoxMind</h1>
+    </div>
+    <nav class="nav-links">
+      <a href="index.html">Accueil</a>
+      <a href="message.html">Questions</a>
+      <div class="user-menu">
+        <div class="user-info" id="userInfoBtn">
+          <i class="fas fa-user-circle user-icon"></i>
+          <span id="username">Nom d’utilisateur</span>
+          <span class="arrow">▾</span>
+        </div>
+        <div class="dropdown" id="userDropdown">
+          <a href="#" id="logoutLink">Déconnexion</a>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main class="main-section">
+    <div class="welcome-header">
+      <h1>Bienvenue chers étudiants !</h1>
+    </div>
+    <div class="content-section">
+      <div class="container-left">
+        <div class="content-left">
+          <p>Espace étudiant est là pour vous accompagner, facilement et efficacement</p>
+          <h3>🔗 Veuillez entrer le lien d'accès fourni pour commencer</h3>
+          <div class="url-container">
+            <input type="url" id="urlInput" placeholder="Collez votre lien ici..." required />
+            <button id="pasteBtn">📋 Coller</button>
+          </div>
+          <h3>📍 Avant le démarrage de l’examen, une demande d’activation de la géolocalisation est affichée</h3>
+          <div class="checklist">
+            <h4>Avant de commencer :</h4>
+            <ul>
+              <li>Vérifie ta connexion Internet</li>
+              <li>Prépare un environnement calme</li>
+              <li>Concentre-toi et bonne chance !</li>
+            </ul>
+          </div>
+          <button class="btn" id="startBtn">
+            <span>Lancer l'examen</span>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+              <path d="M4 12l16-8v16z"/>
+            </svg>
+          </button>
+        </div>
+      </div>
+      <div class="container-right">
+        <img src="photo espace etudiant.png" alt="étudiant" class="main-image" />
+      </div>
+    </div>
+  </main>
+  <script src="script.js"></script>
+
+</body>
+</html>
+
