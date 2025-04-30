@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="inscription.css" />
+  <script src="inscription.js"></script>
+  <link rel="shortcut icon" href="result.png" type="image/jpeg">
+ 
+  <title>FoxMind</title>
+</head>
+<body>
+  <div class="container">
+    <form class="form">
+      <h2>INSCRIPTION</h2>
+      <p>Inscrivez-vous maintenant et accédez à toutes les fonctionnalités de notre application.</p>
+
+      <div class="row">
+        <input type="text" placeholder="Prénom" required />
+        <input type="text" placeholder="Nom" required />
+      </div>
+
+      <input type="email" placeholder="Email" required />
+      <input type="password" placeholder="Mot de passe" required />
+      <input type="date" placeholder="تاريخ الميلاد" required />
+
+      <label class="column">
+        <div class="select-box">
+          <select>
+            <option hidden selected>Établissement</option>
+
+            <!-- Université Abdelmalek Essaâdi -->
+            <optgroup label="Université Abdelmalek Essaâdi">
+              <option>Faculté des Sciences de Tétouan</option>
+              <option>Faculté des Sciences Juridiques, Économiques et Sociales de Tétouan</option>
+              <option>Faculté Polydisciplinaire de Larache</option>
+              <option>Faculté des Lettres et des Sciences Humaines de Tétouan</option>
+            </optgroup>
+
+            <!-- Université Mohammed V de Rabat -->
+            <optgroup label="Université Mohammed V de Rabat">
+              <option>Faculté des Sciences de Rabat</option>
+              <option>Faculté des Lettres et des Sciences Humaines de Rabat</option>
+              <option>Faculté de Médecine Dentaire de Rabat</option>
+              <option>Faculté des Sciences Juridiques, Économiques et Sociales de Souissi</option>
+            </optgroup>
+
+            <!-- Université Cadi Ayyad de Marrakech -->
+            <optgroup label="Université Cadi Ayyad de Marrakech">
+              <option>Faculté des Sciences Semlalia Marrakech</option>
+              <option>Faculté de Médecine et de Pharmacie de Marrakech</option>
+              <option>Faculté des Sciences Juridiques, Économiques et Sociales de Marrakech</option>
+              <option>Faculté Polydisciplinaire de Safi</option>
+            </optgroup>
+
+            <!-- Université Ibn Zohr d’Agadir -->
+            <optgroup label="Université Ibn Zohr d'Agadir">
+              <option>Faculté des Sciences d'Agadir</option>
+              <option>Faculté des Lettres et des Sciences Humaines d'Agadir</option>
+              <option>Faculté Polydisciplinaire de Taroudant</option>
+              <option>Faculté des Sciences Juridiques, Économiques et Sociales d'Agadir</option>
+            </optgroup>
+          </select>
+        </div>
+      </label>
+
+      <label class="column">
+        <div class="select-box">
+          <select required>
+            <option hidden selected>Établissement et Filière</option>
+      
+            <!-- Faculté des Sciences de Tétouan -->
+            <optgroup label="Faculté des Sciences de Tétouan">
+              <option>Informatique</option>
+              <option>Mathématiques</option>
+              <option>Physique</option>
+              <option>Chimie</option>
+              <option>Biologie</option>
+            </optgroup>
+      
+            <!-- Faculté des Sciences Juridiques, Économiques et Sociales de Tétouan -->
+            <optgroup label="FSJES Tétouan">
+              <option>Droit</option>
+              <option>Économie</option>
+              <option>Gestion</option>
+            </optgroup>
+      
+            <!-- Faculté Polydisciplinaire de Larache -->
+            <optgroup label="FP Larache">
+              <option>Génie Informatique</option>
+              <option>Techniques de Management</option>
+              <option>Langues Étrangères Appliquées</option>
+            </optgroup>
+      
+            <!-- Faculté des Lettres de Tétouan -->
+            <optgroup label="FL Tétouan">
+              <option>Littérature Française</option>
+              <option>Études Arabes</option>
+              <option>Philosophie</option>
+            </optgroup>
+      
+            <!-- Faculté des Sciences de Rabat -->
+            <optgroup label="FS Rabat">
+              <option>Mathématiques</option>
+              <option>Physique</option>
+              <option>Chimie</option>
+              <option>Biologie</option>
+              <option>Géologie</option>
+            </optgroup>
+      
+            <!-- Faculté de Médecine Dentaire de Rabat -->
+            <optgroup label="Médecine Dentaire Rabat">
+              <option>Médecine Dentaire</option>
+            </optgroup>
+      
+            <!-- Faculté des Sciences Semlalia Marrakech -->
+            <optgroup label="FS Semlalia Marrakech">
+              <option>Informatique</option>
+              <option>Mathématiques</option>
+              <option>Sciences de la Terre</option>
+            </optgroup>
+      
+            <!-- FP Safi -->
+            <optgroup label="FP Safi">
+              <option>Génie des Procédés</option>
+              <option>Gestion des Entreprises</option>
+            </optgroup>
+      
+            <!-- FS Agadir -->
+            <optgroup label="FS Agadir">
+              <option>Biologie</option>
+              <option>Chimie</option>
+              <option>Physique</option>
+              <option>Mathématiques</option>
+            </optgroup>
+          </select>
+        </div>
+      </label>
+
+      <div class="radio-button">
+        <div class="radio-group">
+          <label>Sexe :</label>
+          <label><input type="radio" name="gender" /> Homme</label>
+          <label><input type="radio" name="gender" /> Femme</label>
+        </div>
+      </div>
+
+      <div class="radio-button">
+        <div class="radio-group">
+          <label>Type d utilisateur :</label>
+          <label><input type="radio" name="type" /> Étudiant</label>
+          <label><input type="radio" name="type" /> Enseignant</label>
+        </div>
+      </div>
+
+      <button type="submit">Envoyer</button>
+
+      <p class="signin-link">Vous avez déjà un compte ? <a href="#">Connexion</a></p>
+    </form>
+  </div>
+</body>
+</html>
