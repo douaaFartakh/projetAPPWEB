@@ -51,7 +51,7 @@
   .nav-top {
     display: flex;
     align-items: flex-start;
-    
+
   }
 
   .nav-links {
@@ -133,7 +133,7 @@
 
   .text-box {
     flex: 1;
-    font-size: 1.4em;
+    font-size: 1.6em;
     line-height: 1.6;
     color: #ffffff;
   }
