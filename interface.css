@@ -12,14 +12,21 @@
     background-attachment: fixed;
     background-size: cover;
     color: #ffffff;
+    margin-top: 100px;
   }
 
   header {
     background-color: rgba(212, 157, 245, 0.7);
     display: flex;
     justify-content: space-between;
-    align-items: flex-start;
-    padding: 20px;
+   
+    align-items: center;
+    padding: 10px 20px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
   }
 
   .logo-section {
@@ -37,14 +44,14 @@
   }
 
   .site-name {
-    font-size: 2.55em;
+    font-size: 2.0em;
     color: #6a1b9a;
   }
 
   .nav-top {
     display: flex;
     align-items: flex-start;
-    padding-top: 30px;
+    
   }
 
   .nav-links {
@@ -87,8 +94,8 @@
   }
 
   .dropdown a {
-    color: #fff !important;
-    background-color: #6a1b9a !important;
+    color: #fff ;
+    background-color: #6a1b9a ;
     padding: 12px 16px;
     text-decoration: none;
     font-weight: normal;
@@ -96,7 +103,7 @@
   }
 
   .dropdown a:hover {
-    background-color: #820098 !important;
+    background-color: #820098 ;
   }
 
   .dropdown a:last-child {
@@ -107,7 +114,7 @@
     display: flex;
   }
 
-  /* CONTENU PRINCIPAL */
+ 
   .main-section {
     display: flex;
     flex-direction: column;
