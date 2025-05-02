@@ -347,3 +347,224 @@
   box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
 }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Ensure the html and body take full height */
+html, body {
+  height: 100%;
+}
+
+/* Wrapper to push footer to the bottom */
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* Main content takes available space */
+main {
+  flex: 1 0 auto;
+  padding: 20px;
+}
+
+footer {
+  background-color: #6a1b9a;   
+  color: #ecf0f1;
+  padding: 5px 5px;
+  width: 100%;
+  flex-shrink: 0;
+  font-family: Arial, sans-serif;
+}
+
+.footer-container {
+  display: flex;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: 0 auto;
+  flex-wrap: wrap;
+  gap: 20px;
+  
+}
+
+.footer-section {
+  flex: 1;
+  min-width: 250px;
+  text-align: center;
+  padding-right: 10px;
+  
+}
+
+.footer-title {
+flex: 1;
+min-width: 250px;
+text-align: center;
+padding-right: 10px;
+margin-top: 1cm; /* هاد السطر هو اللي غيهبط "Suivez-nous" */
+}
+
+.social-icons {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 15px;
+  justify-items: center;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.social-icons a {
+  color: #ecf0f1;
+  font-size: 20px;
+  transition: color 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+  max-width: 150px;
+}
+
+.social-icons a span { 
+  font-size: 14px;  
+  color: #ecf0f1;
+}
+
+/* Specific hover colors for each social media icon */
+.social-icons a.facebook:hover {
+  color: #1877F2; /* Facebook Blue */
+}
+
+.social-icons a.instagram:hover {
+  color: #E4405F; /* Instagram Pink/Red */
+}
+
+.social-icons a.twitter:hover {
+  color: #1DA1F2; /* Twitter Blue */
+}
+
+.social-icons a.whatsapp:hover {
+  color: #25D366; /* WhatsApp Green */
+}
+
+.social-icons a.youtube:hover {
+  color: #FF0000; /* YouTube Red */
+}
+
+.social-icons a.github:hover {
+  color: #181717; /* GitHub Black */
+}
+
+.social-icons a.linkedin:hover {
+  color: #0A66C2; /* LinkedIn Blue */
+}
+
+.social-icons a.email:hover {
+  color: #D44638; /* Gmail Red */
+}
+
+.footer-section p {
+  margin: 10px 0;
+  font-size: 16px;
+}
+
+.footer-section strong {
+  font-style: italic;
+  font-size: 2.55em;
+  color: #4a106e; 
+}
+
+.developers {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  margin-bottom: 15px;
+}
+
+.developer-name {
+  font-weight: 300; /* Lighter font */
+  transform: skewX(-15deg); /* 15% slant */
+  color: #ecf0f1cb;
+  font-size: 16px;
+                                
+}
+
+.tech-icons {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 10px;
+}
+
+.tech-icons i {
+  font-size: 24px;
+  color: #ecf0f1;
+  transition: color 0.3s ease;
+}
+
+.tech-icons .html:hover {
+  color: #E34F26; /* HTML Orange */
+}
+
+.tech-icons .css:hover {
+  color: #1572B6; /* CSS Blue */
+}
+
+.tech-icons .js:hover {
+  color: #F7DF1E; /* JS Yellow */
+}
+
+.logo-placeholder {
+  margin: 20px 0;
+}
+
+.logo-placeholder img {
+  max-width: 100px;
+  height: auto;
+}
+
+@media (max-width: 768px) {
+  .footer-container {
+      flex-direction: column;
+      align-items: center;
+  }
+
+  .footer-section {
+      margin-bottom: 20px;
+  }
+
+  .social-icons {
+      grid-template-columns: repeat(2, 1fr);
+  }
+}
