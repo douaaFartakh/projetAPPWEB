@@ -1,23 +1,14 @@
+// JavaScript
 function submitExamForm(event) {
   event.preventDefault();
 
   const titre = document.getElementById('titre').value;
-  const semestre = document.getElementById('semestre').value;
-  const filiere = document.getElementById('filiere').value;
 
-  
+  // نخزن العنوان في localStorage
   localStorage.setItem('examTitre', titre);
-  localStorage.setItem('examSemestre', semestre);
-  localStorage.setItem('examFiliere', filiere);
 
-
+  // ننتقل للصفحة الثانية
   window.location.href = 'page-cree-examen.html';
 }
 
-
 document.getElementById("examForm").addEventListener("submit", submitExamForm);
-
-
-document.getElementById("logoutBtn").addEventListener("click", () => {
-  alert("Déconnexion réussie !");
-});
