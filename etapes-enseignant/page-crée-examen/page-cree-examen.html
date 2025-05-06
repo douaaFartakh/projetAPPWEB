@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Création d'examen - FOXMinds</title>
+  <link rel="stylesheet" href="page-crée-examen.css"/>
+</head>
+<body>
+  <div class="container">
+    <div class="form-section">
+      <h2>Création d'un Examen</h2>
+      <label for="examTitle">Titre de l'examen</label>
+      <input type="text" id="examTitle" placeholder="Entrez le titre de l'examen">
+
+      <label>Type de question</label>
+      <select id="type_question">
+        <option value="">-- Sélectionner --</option>
+        <option value="qcm">QCM</option>
+        <option value="directe">Réponse directe</option>
+      </select>
+    </div>
+
+    <div id="qcmForm" class="form-section" style="display: none;">
+      <h3>Question QCM</h3>
+      <textarea id="enonce_qcm" placeholder="Énoncé de la question"></textarea>
+      <label class="file-label">Ajouter un fichier (image/pdf/vidéo)</label>
+      <input type="file" id="media_qcm">
+      <div id="optionsContainer_qcm">
+        <input type="text" placeholder="Option 1" class="optionInput_qcm">
+        <input type="text" placeholder="Option 2" class="optionInput_qcm">
+      </div>
+      <button type="button" onclick="ajouterOptionQCM()">➕ Ajouter une option</button>
+      <input type="text" id="bonnes_reponses" placeholder="Bonne(s) réponse(s) (ex: 1,2)">
+      <input type="number" id="note_qcm" placeholder="Note">
+      <input type="number" id="duree_qcm" placeholder="Durée (s)">
+      <button onclick="ajouterQuestionQCM()">Ajouter</button>
+    </div>
+
+    <div id="directeForm" class="form-section" style="display: none;">
+      <h3>Question à Réponse Directe</h3>
+      <textarea id="enonce_directe" placeholder="Énoncé de la question"></textarea>
+      <label class="file-label">Ajouter un fichier (image/pdf/vidéo)</label>
+      <input type="file" id="media_directe">
+      <input type="text" id="reponse_directe" placeholder="Réponse attendue">
+      <input type="number" id="tolerance" placeholder="Tolérance (%)">
+      <input type="number" id="note_directe" placeholder="Note">
+      <input type="number" id="duree_directe" placeholder="Durée (s)">
+      <button onclick="ajouterQuestionDirecte()">Ajouter</button>
+    </div>
+
+    <fieldset id="questionsList" class="questions-wrapper" style="display:none;">
+      <legend id="examLegend" class="questions-title">Examen</legend>
+      <div id="questionsContent"></div>
+    </fieldset>
+
+    <button onclick="enregistrerExamen()">Enregistrer l'examen</button>
+    <div id="examLink" style="display:none;"></div>
+
+  </div>
+
+  <script>
+    const typeSelect = document.getElementById("type_question");
+    const qcmForm = document.getElementById("qcmForm");
+    const directeForm = document.getElementById("directeForm");
+    const questionsList = document.getElementById("questionsList");
+    const questionsContent = document.getElementById("questionsContent");
+    const examTitle = document.getElementById("examTitle");
+    const examLegend = document.getElementById("examLegend");
+
+    const examData = {
+      title: "",
+      questions: []
+    };
+
+    examTitle.addEventListener("input", () => {
+      examLegend.textContent = examTitle.value || "Examen";
+      examData.title = examTitle.value;
+    });
+
+    typeSelect.addEventListener("change", () => {
+      qcmForm.style.display = typeSelect.value === "qcm" ? "block" : "none";
+      directeForm.style.display = typeSelect.value === "directe" ? "block" : "none";
+    });
+
+    function ajouterOptionQCM() {
+      const container = document.getElementById("optionsContainer_qcm");
+      const index = container.querySelectorAll("input").length + 1;
+      const input = document.createElement("input");
+      input.type = "text";
+      input.placeholder = `Option ${index}`;
+      input.className = "optionInput_qcm";
+      container.appendChild(input);
+    }
+
+    function viderChampsQCM() {
+      document.getElementById("enonce_qcm").value = "";
+      document.getElementById("media_qcm").value = "";
+      document.getElementById("bonnes_reponses").value = "";
+      document.getElementById("note_qcm").value = "";
+      document.getElementById("duree_qcm").value = "";
+      document.getElementById("optionsContainer_qcm").innerHTML = `
+        <input type="text" placeholder="Option 1" class="optionInput_qcm">
+        <input type="text" placeholder="Option 2" class="optionInput_qcm">
+      `;
+    }
+
+    function ajouterQuestionQCM() {
+      const enonce = document.getElementById("enonce_qcm").value.trim();
+      const options = Array.from(document.querySelectorAll(".optionInput_qcm")).map(input => input.value.trim());
+      const bonnes_reponses = document.getElementById("bonnes_reponses").value.trim();
+      const note = document.getElementById("note_qcm").value.trim();
+      const duree = document.getElementById("duree_qcm").value.trim();
+
+      if (!enonce || options.length === 0 || !bonnes_reponses || !note || !duree) {
+        alert("Veuillez remplir tous les champs de la question QCM.");
+        return;
+      }
+
+      const media = document.getElementById("media_qcm").files[0]?.name || "Aucun";
+
+      const question = {
+        type: "qcm",
+        enonce,
+        media,
+        options,
+        bonnes_reponses,
+        note,
+        duree
+      };
+
+      examData.questions.push(question);
+      afficherQuestions();
+      viderChampsQCM();
+    }
+
+    function ajouterQuestionDirecte() {
+      const enonce = document.getElementById("enonce_directe").value.trim();
+      const reponse = document.getElementById("reponse_directe").value.trim();
+      const tolerance = document.getElementById("tolerance").value.trim();
+      const note = document.getElementById("note_directe").value.trim();
+      const duree = document.getElementById("duree_directe").value.trim();
+
+      if (!enonce || !reponse || !tolerance || !note || !duree) {
+        alert("Veuillez remplir tous les champs de la question directe.");
+        return;
+      }
+
+      const media = document.getElementById("media_directe").files[0]?.name || "Aucun";
+
+      const question = {
+        type: "directe",
+        enonce,
+        media,
+        reponse,
+        tolerance,
+        note,
+        duree
+      };
+
+      examData.questions.push(question);
+      afficherQuestions();
+      viderChampsDirecte();
+    }
+
+    function viderChampsDirecte() {
+      document.getElementById("enonce_directe").value = "";
+      document.getElementById("media_directe").value = "";
+      document.getElementById("reponse_directe").value = "";
+      document.getElementById("tolerance").value = "";
+      document.getElementById("note_directe").value = "";
+      document.getElementById("duree_directe").value = "";
+    }
+
+    function afficherQuestions() {
+      questionsContent.innerHTML = "";
+      examData.questions.forEach((question, index) => {
+        const questionHTML = `
+          <div class="question-item">
+            <div class="icon-button">
+              <i onclick="supprimerQuestion(${index})">🗑️</i>
+              <i onclick="alert('Modification à implémenter')">✏️</i>
+            </div>
+            <div class="question-left"><strong>${question.type === "qcm" ? "QCM" : "Directe"}</strong></div>
+            <div class="question-right">
+              <p><strong>Énoncé:</strong> ${question.enonce}</p>
+              <p><strong>Fichier:</strong> ${question.media}</p>
+              ${question.type === "qcm" ? `<p><strong>Options:</strong> ${question.options.join(", ")}</p>` : ""}
+              <p><strong>Réponse attendue:</strong> ${question.reponse || "Non définie"}</p>
+              <p><strong>Note:</strong> ${question.note} | <strong>Durée:</strong> ${question.duree} s</p>
+            </div>
+          </div>
+        `;
+        questionsContent.innerHTML += questionHTML;
+      });
+      questionsList.style.display = "block";
+    }
+
+    function supprimerQuestion(index) {
+      examData.questions.splice(index, 1);
+      afficherQuestions();
+    }
+
+    function enregistrerExamen() {
+      if (examData.questions.length === 0) {
+        alert("Veuillez ajouter au moins une question avant d'enregistrer l'examen.");
+        return;
+      }
+
+      const examId = encodeURIComponent(examData.title.replace(/\s+/g, '-').toLowerCase()) + "-" + new Date().getTime();
+      localStorage.setItem(examId, JSON.stringify(examData));
+
+      const examLink = `${window.location.origin}/exam.html?id=${examId}`;
+      document.getElementById("examLink").innerHTML = `IMPORTANT : Veuillez enregistrer les données aprés chaque modification des qestions <br/> Votre examen est enregistré. Voici votre lien : <a href="${examLink}" target="_blank">${examLink}</a>`;
+      document.getElementById("examLink").style.display = "block";
+    }
+  </script>
+</body>
+</html>
