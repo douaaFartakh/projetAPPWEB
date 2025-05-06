@@ -1,11 +1,10 @@
-
 document.addEventListener('DOMContentLoaded', function () {
     const form = document.querySelector('.form');
-    
-    form.addEventListener('submit', function (event) {
-        event.preventDefault(); // Prevent default form submission
 
-        // Get form inputs
+    form.addEventListener('submit', function (event) {
+        event.preventDefault(); 
+
+        
         const firstName = form.querySelector('input[placeholder="Prénom"]').value.trim();
         const lastName = form.querySelector('input[placeholder="Nom"]').value.trim();
         const email = form.querySelector('input[type="email"]').value.trim();
@@ -15,71 +14,56 @@ document.addEventListener('DOMContentLoaded', function () {
         const gender = form.querySelector('input[name="gender"]:checked');
         const userType = form.querySelector('input[name="type"]:checked');
 
-        // Validation flags
+       
         let isValid = true;
         let errorMessage = '';
 
-        // Validate First Name
         if (!firstName) {
             isValid = false;
             errorMessage += 'Le prénom est requis.\n';
         }
 
-        // Validate Last Name
         if (!lastName) {
             isValid = false;
             errorMessage += 'Le nom est requis.\n';
         }
 
-        // Validate Email
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        if (!email) {
+        if (!email || !emailRegex.test(email)) {
             isValid = false;
-            errorMessage += 'L\'email est requis.\n';
-        } else if (!emailRegex.test(email)) {
-            isValid = false;
-            errorMessage += 'Veuillez entrer un email valide.\n';
+            errorMessage += 'Email invalide.\n';
         }
 
-        // Validate Password
-        if (!password) {
+        if (!password || password.length < 8) {
             isValid = false;
-            errorMessage += 'Le mot de passe est requis.\n';
-        } else if (password.length < 8) {
-            isValid = false;
-            errorMessage += 'Le mot de passe doit contenir au moins 8 caractères.\n';
+            errorMessage += 'Mot de passe trop court (min 8 caractères).\n';
         }
 
-        // Validate Establishment
         if (!establishment || establishment === 'Établissement') {
             isValid = false;
-            errorMessage += 'Veuillez sélectionner un établissement.\n';
+            errorMessage += 'Établissement requis.\n';
         }
 
-        // Validate Field of Study
         if (!fieldOfStudy || fieldOfStudy === 'Établissement et Filière') {
             isValid = false;
-            errorMessage += 'Veuillez sélectionner une filière.\n';
+            errorMessage += 'Filière requise.\n';
         }
 
-        // Validate Gender
         if (!gender) {
             isValid = false;
-            errorMessage += 'Veuillez sélectionner un sexe.\n';
+            errorMessage += 'Sexe requis.\n';
         }
 
-        // Validate User Type
         if (!userType) {
             isValid = false;
-            errorMessage += 'Veuillez sélectionner un type d\'utilisateur.\n';
+            errorMessage += 'Type d\'utilisateur requis.\n';
         }
 
-        // Display errors or submit form
         if (!isValid) {
             alert(errorMessage);
         } else {
-            // Simulate form submission (replace with actual submission logic)
-            console.log({
+            
+            const userData = {
                 firstName,
                 lastName,
                 email,
@@ -88,9 +72,13 @@ document.addEventListener('DOMContentLoaded', function () {
                 fieldOfStudy,
                 gender: gender.value,
                 userType: userType.value
-            });
+            };
+
+            localStorage.setItem('utilisateurEnregistre', JSON.stringify(userData));
             alert('Inscription réussie !');
-            form.reset(); // Reset form after successful submission
+
+                
+            window.location.href = 'form.html';
         }
     });
 });
