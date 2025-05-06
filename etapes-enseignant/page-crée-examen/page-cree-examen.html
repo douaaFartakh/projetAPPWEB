@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <title>Création d'examen - FOXMinds</title>
   <link rel="stylesheet" href="page-crée-examen.css"/>
+  <link rel="shortcut icon" href="iconimage.png" type="image/jpg" />
 </head>
 <body>
   <div class="container">
@@ -213,6 +214,15 @@
       document.getElementById("examLink").innerHTML = `IMPORTANT : Veuillez enregistrer les données aprés chaque modification des qestions <br/> Votre examen est enregistré. Voici votre lien : <a href="${examLink}" target="_blank">${examLink}</a>`;
       document.getElementById("examLink").style.display = "block";
     }
+   
+   document.addEventListener("DOMContentLoaded", () => {
+    const titre = localStorage.getItem("examTitre");
+    if (titre) {
+      examTitle.value = titre;
+      examLegend.textContent = titre;
+      examData.title = titre;
+    }
+  });
   </script>
 </body>
 </html>
