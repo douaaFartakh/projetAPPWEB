@@ -3,8 +3,12 @@ body {
   font-family: Arial, sans-serif;
   margin: 0;
   padding: 20px;
-  background: #d4aced;
-  color: #800080;
+  color: #6a1b9a;
+  background-image: url("background-image.png");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-attachment: fixed;
+  background-size: cover;
 }
 
 .container {
@@ -26,18 +30,18 @@ select, input, textarea, button {
   box-sizing: border-box;
   padding: 10px;
   margin: 10px 0;
-  border: 1px solid #800080;
+  border: 1px solid #6a1b9a;
   border-radius: 5px;
   outline: none;
 }
 
 select:focus, input:focus, textarea:focus {
-  border: 2px solid #800080;
+  border: 2px solid #6a1b9a;
 }
 
 fieldset.questions-wrapper {
   background: #eee0f7;
-  border: 2px solid #800080;
+  border: 2px solid #6a1b9a;
   border-radius: 10px;
   padding: 20px;
 }
@@ -46,8 +50,8 @@ legend.questions-title {
   font-weight: bold;
   padding: 5px 15px;
   background: #fff;
-  border: 2px solid #800080;
-  color: #800080;
+  border: 2px solid #6a1b9a;
+  color: #6a1b9a;
   border-radius: 5px;
 }
 
@@ -84,7 +88,7 @@ legend.questions-title {
 
 .icon-button i {
   cursor: pointer;
-  color: #800080;
+  color: #6a1b9a;
 }
 
 label {
@@ -103,7 +107,7 @@ input[type="file"] {
 }
 
 button {
-  background-color: #800080;
+  background-color: #6a1b9a;
   color: white;
   border: none;
   cursor: pointer;
