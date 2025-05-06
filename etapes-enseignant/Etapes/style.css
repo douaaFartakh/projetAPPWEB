@@ -30,9 +30,8 @@ header {
 .logo {
   height: 80px;
   width: 80px;
-  object-fit: cover;
-  border-radius: 50%;
-  box-shadow: 0 0 10px 3px #de75f1;
+ 
+ 
   margin-right: 20px;
 }
 
