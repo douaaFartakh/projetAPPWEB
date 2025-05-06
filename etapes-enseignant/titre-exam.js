@@ -14,4 +14,7 @@ function submitExamForm(event) {
     
     window.location.href = 'exam.html';
   }
-  
+  document.getElementById("logoutBtn").addEventListener("click", () => {
+    alert("Déconnexion réussie !");
+    
+  });

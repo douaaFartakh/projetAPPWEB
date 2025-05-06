@@ -262,4 +262,48 @@
   
   
   
+  .user-menu {
+    position: relative;
+  }
+  
+  .user-info {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    color: #ffffff;
+    font-weight: bold;
+    gap: 5px;
+    font-size: 1.2em;
+  }
+  
+  .user-icon, .arrow-icon {
+    font-size: 1.4em;
+  }
+  
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #84009c;
+    min-width: 160px;
+    z-index: 1;
+    left: 0;
+    top: 100%; 
+    border-radius: 5px;
+}
+
+  
+  .dropdown-content a {
+    color: white;
+    padding: 10px;
+    display: block;
+    text-decoration: none;
+  }
+  
+  .dropdown-content a:hover {
+    background-color: #7d3eb7;
+  }
+  
+  .user-menu:hover .dropdown-content {
+    display: block;
+  }
   
