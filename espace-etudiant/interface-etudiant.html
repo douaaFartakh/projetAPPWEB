@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="shortcut icon" href="iconimage.png" type="image/png" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="interface-etudiant.css" />
   <title>FOXMind - Espace Étudiant</title>
 </head>
 <body>
@@ -16,7 +16,7 @@
     </div>
     <nav class="nav-links">
       <a href="index.html">Accueil</a>
-      <a href="message.html">Questions</a>
+      <a href="qa.html">Questions</a>
       <div class="user-menu">
         <div class="user-info" id="userInfoBtn">
           <i class="fas fa-user-circle user-icon"></i>
@@ -66,6 +66,17 @@
     </div>
   </main>
   <script src="interface-etudiant.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const username = localStorage.getItem("username");
+      const userRole = localStorage.getItem("userRole");
+  
+      if (!username || userRole !== "Étudiant") {
+        alert("Veuillez vous connecter en tant qu'étudiant.");
+        window.location.href = "page connexion.html";
+      }
+    });
+  </script>
 
 </body>
 </html>
