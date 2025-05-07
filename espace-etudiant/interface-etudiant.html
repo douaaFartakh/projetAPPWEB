@@ -66,17 +66,7 @@
     </div>
   </main>
   <script src="interface-etudiant.js"></script>
-  <script>
-    document.addEventListener("DOMContentLoaded", function () {
-      const username = localStorage.getItem("username");
-      const userRole = localStorage.getItem("userRole");
-  
-      if (!username || userRole !== "Étudiant") {
-        alert("Veuillez vous connecter en tant qu'étudiant.");
-        window.location.href = "page connexion.html";
-      }
-    });
-  </script>
+
 
 </body>
 </html>
