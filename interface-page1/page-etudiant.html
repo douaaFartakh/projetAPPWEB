@@ -4,185 +4,10 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>FoxMind - Espace Étudiant(e)</title>
-  <link rel="stylesheet" href="css.css"/>
+  <link rel="stylesheet" href="page-ensig-etud.css"/>
   <link rel="shortcut icon" href="fox logo.png" type="image/jpeg" />
  
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    body {
-      font-family: Arial, sans-serif;
-      background-image: url("background img.jpg");
-      background-repeat: no-repeat;
-      background-position: center center;
-      background-attachment: fixed;
-      background-size: cover;
-      color: #ffffff;
-    }
-
-    header {
-      background-color: rgba(212, 157, 245, 0.7);
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-start;
-      padding: 10px 20px;
-    }
-
-    .logo-section {
-      display: flex;
-      align-items: center;
-    }
-
-    .logo {
-      height: 100px;
-      width: 100px;
-      object-fit: cover;
-      /*border-radius: 50%;
-      box-shadow: 0 0 10px 3px #de75f1;*/
-      margin-right: 20px;
-    }
-
-    .site-name {
-        font-size: 3.0em;
-      color: #6a1b9a;
-    }
-
-    .nav-top {
-      display: flex;
-      align-items: flex-start;
-      padding-top: 35px;
-    }
-
-    .nav-links {
-      list-style: none;
-      display: flex;
-      gap: 30px;
-    }
-
-    .nav-links > li {
-      position: relative;
-    }
-
-    .nav-links > li > a {
-      color: #ffffff;
-      text-decoration: none;
-      font-weight: bold;
-      font-size: 1.4em;
-      transition: color 0.3s ease;
-      padding: 8px 12px;
-      border-radius: 6px;
-       text-decoration: underline;
-    }
-
-    .nav-links > li > a:hover {
-      color: #6a1b9a;
-     
-    }
-
-    .dropdown {
-      position: absolute;
-      top: 100%;
-      left: 0;
-      background-color: #6a1b9a;
-      display: none;
-      flex-direction: column;
-      min-width: 180px;
-      z-index: 10;
-      border-radius: 5px;
-      overflow: hidden;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-    }
-
-    .dropdown a {
-      color: #fff ;
-      background-color: #6a1b9a ;
-      padding: 12px 16px;
-      text-decoration: none;
-      font-weight: normal;
-      border-bottom: 1px solid #fff;
-    }
-
-    .dropdown a:hover {
-      background-color: #820098 ;
-    }
-
-    .dropdown a:last-child {
-      border-bottom: none;
-    }
-
-    .nav-links li:hover .dropdown {
-      display: flex;
-    }
-
-    .main-section {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-start;
-      padding: 40px;
-      gap: 40px;
-      background-color: transparent;
-    }
-
-    .content-left, .content-right {
-      flex: 1;
-      padding: 20px;
-    }
-
-    .content-left {
-      max-width: 48%;
-    }
-
-    .content-left h1 {
-      color: #6a1b9a;
-      font-size: 2.7em;
-    }
-
-    .content-left ul {
-      font-size: 1.7em;
-      margin-top: 20px;
-    }
-
-    .button-group {
-      display: flex;
-      gap: 90px;
-      margin-top: 30px;
-      margin-left: 50px;
-    }
-    .btn {
-      width: 150px;
-      height: 70px;
-      background-color: #6a1b9a;
-      color: #ffffff;
-      border-radius: 10px;
-      text-decoration: none;
-      font-weight: bold;
-       box-shadow: 0 0 20px #d086fe;
-      transition: background-color 1.55s ease;
-      font-size: larger;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .btn:hover {
-      background-color: #9621ab;
-    }
-
- 
-
-    .main-image {
-      width: 100%;
-      max-height: 500px;
-      height: auto;
-      /*border-radius: 10px;
-      object-fit: cover;*/
-     
-    }
-  </style>
+  
 </head>
 <body>
   <header>
@@ -192,23 +17,23 @@
     </div>
     <nav class="nav-top">
       <ul class="nav-links">
-        <li><a href="file:///C:/Users/raoud/OneDrive/Bureau/try%20java/page%201%20.html">Accueil</a></li>
+        <li><a href="interface.html">Accueil</a></li>
         <li><a href="qa.html">Questions</a></li>
         <li>
           <a href="#">Espace</a>
           <div class="dropdown">
-             <a href="file:///C:/Users/raoud/OneDrive/Bureau/try%20java/page%20prof.html">🧑‍🏫 Espace Enseignant(e)</a>
-           <a href="file:///C:/Users/raoud/OneDrive/Bureau/try%20java/page%20etud.html">🎓 Espace Étudiant(e)</a>
+             <a href="page-ensignent.html">🧑‍🏫 Espace Enseignant(e)</a>
+           <a href="page-etudiant.html">🎓 Espace Étudiant(e)</a>
           </div>
         </li>
-        <li><a href="page connexion.html">Connex/Inscrip</a></li>
+        <li><a href="form.html">Connex/Inscrip</a></li>
       </ul>
     </nav>
   </header>
 
   <main class="main-section">
     <div class="content-left">
-      <h1>Que faire en tant qu'étudiant(e) ?</h1>
+      <h1>Quoi faire en tant qu'un(e) étudiant(e) ?</h1>
       <ul>
         <li>Accédez aux examens créés par vos enseignants.</li>
         <li>Répondez aux questions directement en ligne.</li>
@@ -217,7 +42,7 @@
         <li>Et bien plus encore en accédant à votre espace personnel.</li>
       </ul>
       <div class="button-group">
-        <a href="file:///C:/Users/raoud/OneDrive/Bureau/try%20java/page%20connexion.html" class="btn">Connexion</a>
+        <a href="form.html" class="btn">Connexion</a>
         <a href="signin.html" class="btn">Inscription</a>
       </div>
       
