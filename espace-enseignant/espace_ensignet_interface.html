@@ -53,5 +53,37 @@
       </div>
     </div>
   </main>
+  <script><script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const storedUser = localStorage.getItem("username");
+      const role = localStorage.getItem("role");
+  
+     
+      if (!storedUser || role !== "Enseignant") {
+        window.location.href = "form.html";
+        return;
+      }
+  
+     
+      document.getElementById("username").textContent = storedUser;
+  
+     
+      const userInfoBtn = document.getElementById("userInfoBtn");
+      userInfoBtn.addEventListener("click", function () {
+        const dropdown = document.getElementById("userDropdown");
+        const arrow = document.querySelector(".arrow");
+        dropdown.style.display =
+          dropdown.style.display === "block" ? "none" : "block";
+        arrow.classList.toggle("up");
+      });
+  
+      
+      document.getElementById("logoutLink").addEventListener("click", function (e) {
+        e.preventDefault();
+        localStorage.clear();
+        window.location.href = "form.html";
+      });
+    });
+  </script></script>
 </body>
 </html>
