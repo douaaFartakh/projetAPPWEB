@@ -46,7 +46,7 @@ document.addEventListener("DOMContentLoaded", function() {
           const coords = { latitude: position.coords.latitude, longitude: position.coords.longitude };
           localStorage.setItem("geolocation", JSON.stringify(coords));
           alert(`Géolocalisation enregistrée : Lat ${coords.latitude}, Lon ${coords.longitude}`);
-          window.location.href = "exam.html";
+          window.location.href = "exam-etudiant.html";
         },
         function(error) {
           switch (error.code) {
