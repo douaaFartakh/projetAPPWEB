@@ -1,11 +1,22 @@
-document.addEventListener("DOMContentLoaded", function() {
-  const storedUser = localStorage.getItem("username");
-  if (storedUser) {
-    document.getElementById("username").textContent = storedUser;
+document.addEventListener("DOMContentLoaded", function () {
+  
+  const firstName = localStorage.getItem("firstName");
+  const lastName = localStorage.getItem("lastName");
+  const userType = localStorage.getItem("userType");
+
+  
+  if (!firstName || !lastName || userType !== "Étudiant") {
+    alert("Veuillez vous connecter en tant qu'étudiant.");
+    window.location.href = "form.html";
+    return;
   }
 
+  
+  document.getElementById("username").textContent = `${firstName} ${lastName}`;
+
+ 
   const userInfoBtn = document.getElementById("userInfoBtn");
-  userInfoBtn.addEventListener("click", function() {
+  userInfoBtn.addEventListener("click", function () {
     const dropdown = document.getElementById("userDropdown");
     const arrow = document.querySelector(".arrow");
     if (dropdown.style.display === "block") {
@@ -17,13 +28,18 @@ document.addEventListener("DOMContentLoaded", function() {
     }
   });
 
-  document.getElementById("logoutLink").addEventListener("click", function(e) {
+
+  document.getElementById("logoutLink").addEventListener("click", function (e) {
     e.preventDefault();
-    localStorage.removeItem("username");
+  
+    localStorage.removeItem("firstName");
+    localStorage.removeItem("lastName");
+    localStorage.removeItem("userType");
+    localStorage.removeItem("geolocation"); 
     window.location.href = "form.html";
   });
 
-  document.getElementById("pasteBtn").addEventListener("click", async function() {
+  document.getElementById("pasteBtn").addEventListener("click", async function () {
     try {
       const text = await navigator.clipboard.readText();
       document.getElementById("urlInput").value = text;
@@ -32,8 +48,8 @@ document.addEventListener("DOMContentLoaded", function() {
     }
   });
 
-  
-  document.getElementById("startBtn").addEventListener("click", function() {
+
+  document.getElementById("startBtn").addEventListener("click", function () {
     const input = document.getElementById("urlInput");
     const pattern = /^https:\/\/examen\.foxmind\.com\/.+/;
     if (!input.checkValidity() || !pattern.test(input.value)) {
@@ -42,13 +58,13 @@ document.addEventListener("DOMContentLoaded", function() {
     }
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(
-        function(position) {
+        function (position) {
           const coords = { latitude: position.coords.latitude, longitude: position.coords.longitude };
           localStorage.setItem("geolocation", JSON.stringify(coords));
           alert(`Géolocalisation enregistrée : Lat ${coords.latitude}, Lon ${coords.longitude}`);
-          window.location.href = "exam.html";
+          window.location.href = "exam-etudiant.html";
         },
-        function(error) {
+        function (error) {
           switch (error.code) {
             case error.PERMISSION_DENIED:
               alert("Vous avez refusé la géolocalisation. Autorisez-la pour continuer.");
@@ -69,4 +85,3 @@ document.addEventListener("DOMContentLoaded", function() {
     }
   });
 });
-
