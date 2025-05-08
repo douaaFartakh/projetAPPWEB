@@ -50,12 +50,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
   document.getElementById("startBtn").addEventListener("click", function () {
-    const input = document.getElementById("urlInput");
-    const pattern = /^https:\/\/examen\.foxmind\.com\/.+/;
-    if (!input.checkValidity() || !pattern.test(input.value)) {
-      alert("Veuillez entrer un lien d'examen valide (ex : https://examen.foxmind.com/...)");
-      return;
-    }
+    const input = document.getElementById("urlInput").value.trim();
+    
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(
         function (position) {
