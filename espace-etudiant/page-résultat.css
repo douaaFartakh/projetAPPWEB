@@ -107,7 +107,7 @@ header {
     transition: transform 0.3s ease;
 }
 
- .dropdown {
+.dropdown {
   position: absolute;
   top: 100%;
   right: 0;
@@ -121,11 +121,6 @@ header {
   transition: background-color 0.3s ease;
 }
 
-.user-menu:hover .dropdown {
-  display: flex;
-  background-color: #6a1b9a;
-}
-
 .dropdown a {
   color: #ffffff;
   text-decoration: none;
@@ -133,6 +128,13 @@ header {
   font-size: 1em;
   padding: 8px 12px;
 }
+
+.user-menu:hover .dropdown {
+  display: flex;
+  background-color: #6a1b9a;
+}
+
+
 
 .result-container {
     background-color: #ffffff21;

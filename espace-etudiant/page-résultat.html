@@ -6,8 +6,7 @@
     <title>Résultats de l'Examen</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link rel="stylesheet" href="page-résultat.css">
-   
-</head>
+    </head>
 <body>
     <header>
         <div class="logo-section">
@@ -19,13 +18,13 @@
                 <li><a href="interface-etudiant.html">Accueil</a></li>
                 <li><a href="qa.html">Questions</a></li>
                  <div class="user-menu">
-                <div class="user-info" onclick="toggleMenu()">
+                <div class="user-info" >
                     <i class="fas fa-user-circle user-icon"></i>
                     <span id="username">Nom d’utilisateur</span>
                     <span class="arrow">▾</span>
                 </div>
                 <div class="dropdown" id="userDropdown">
-                    <a href="form.html" onclick="logout()">Déconnexion</a>
+                    <a href="form.html" id="logoutLink()">Déconnexion</a>
                 </div>
             </div>
         </ul>
@@ -36,44 +35,17 @@
         <h2 id="completion-message">Félisitaion vous avez completrer votre examen !</h2></br></br>
         <p id="score"></p>
         <ul>
-        </br></br><li>Mention exellent : si votre score égale a 100</li>
-         <li>Mention trés bien : si votre score entre 80-100</li>
-        <li>Mention bien : si votre score entre 60-80</li> 
-        <li>mention moyen: si votre scoretres bien 50-60</li> 
-        <li>Pas mal :si votre score entre 30-50</li> 
-        <li>Il faut bien préeparer si inférieur à 30  </li>
-        </ul></br></br>
+            <br><br>
+            <li>Mention excellent : si votre score est égal à 100</li>
+            <li>Mention très bien : si votre score est entre 80 et 100</li>
+            <li>Mention bien : si votre score est entre 60 et 80</li>
+            <li>Mention moyen : si votre score est entre 50 et 60</li>
+            <li>Pas mal : si votre score est entre 30 et 50</li>
+            <li>Il faut bien se préparer si inférieur à 30</li>
+        </ul><br><br>
          <button id="return-btn" onclick="returnToHome()">Retour à votre espace étudiant(e) </button>
     </div>
-
-    <script>
-        window.onload = function () {
-            const username = localStorage.getItem("username");
-            if (username) {
-                document.getElementById("username").textContent = username;
-            }
-
-            const score = localStorage.getItem("examScore");
-            const totalPoints = localStorage.getItem("totalPoints");
-            const scorePercentage = (score / totalPoints) * 100;
-
-            document.getElementById("score").textContent = `Votre score : ${score} / ${totalPoints} (${scorePercentage.toFixed(2)}%)`;
-        };
-
-        function toggleMenu() {
-            const dropdown = document.getElementById("userDropdown");
-            dropdown.style.display = dropdown.style.display === "block" ? "none" : "block";
-        }
-
-        function logout() {
-            localStorage.removeItem("username");
-            localStorage.removeItem("userRole");
-            window.location.href = "form.html";
-        }
-
-        function returnToHome() {
-            window.location.href = "interface-etudiant.html";
-        }
-    </script>
+<script src="page-résultat.js"></script>
+    
 </body>
 </html>
