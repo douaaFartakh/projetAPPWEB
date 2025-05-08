@@ -1,13 +1,14 @@
 window.onload = function () {
-    const username = localStorage.getItem("username");
-    const userRole = localStorage.getItem("userRole");
+    const firstName = localStorage.getItem("firstName");
+    const lastName = localStorage.getItem("lastName");
+    const userType = localStorage.getItem("userType");
 
-    if (username) {
-        document.getElementById("username").textContent = username;
-    }
-
-    if (userRole === "teacher") {
-        window.location.href = "page-cree-examen.html";
+    if (firstName && lastName && userType === "Étudiant") {
+        document.getElementById("username").textContent = `${firstName} ${lastName}`;
+    } else {
+        alert("Veuillez vous connecter en tant qu'étudiant.");
+        window.location.href = "form.html";
+        return;
     }
 
     loadExam();
@@ -43,7 +44,10 @@ const resultBtn = document.getElementById("result-btn");
 const noQuestionsMessage = document.getElementById("no-questions-message");
 
 function loadExam() {
-    const examData = JSON.parse(localStorage.getItem("examData")) || { title: "Examen", questions: [] };
+    const urlParams = new URLSearchParams(window.location.search);
+    const examId = urlParams.get("id") || localStorage.getItem("lastExamId");
+    const examData = JSON.parse(localStorage.getItem(examId)) || { title: "Examen", questions: [] };
+
     examTitle.textContent = examData.title || "Examen";
     questions = examData.questions || [];
     userAnswers = new Array(questions.length).fill(null);
