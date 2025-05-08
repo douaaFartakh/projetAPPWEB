@@ -3,12 +3,12 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>FOXMind-Espace_Ensignent</title>
+  <title>FOXMind-Espace_Enseignant</title>
   <link rel="icon" type="image/png" href="fox logo.png" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
-  <link rel="stylesheet" href="espace_ensignent.css" />
+  <link rel="stylesheet" href="espace_enseignant.css" />
+  <script src="espace_ensignent.js"></script>
 </head>
-
 
 <body>
   <header>
@@ -20,7 +20,7 @@
       <ul class="nav-links">
         <li><a href="index.html">Accueil</a></li>
         <li><a href="qa.html">Questions</a></li>
-        <li><a href="file:///C:/Users/raoud/OneDrive/Bureau/TP-1%20JAVA/projetAPPWEB/etapes-enseignant/index.html">Etapes</a></li>
+        <li><a href="etapes.html">Etapes</a></li>
         <li class="user-menu">
           <div class="user-info" id="userInfoBtn">
             <i class="fas fa-user-circle user-icon"></i>
@@ -37,10 +37,10 @@
 
   <main class="main-section">
     <nav class="sidebar">
-      <a href="file:///C:/Users/raoud/OneDrive/Bureau/TP-1%20JAVA/projetAPPWEB/etapes-enseignant/titre-exam.html">Crée examens</a>
-      <a href="#">Ancien examens</a>
-      <a href="#">Résultats</a>
-      <a href="test1.html">Publish</a>
+      <a href="titre-exam.html">Crée examens</a>
+      <a href="ancien-examen-acces.html">Ancien examens</a>
+      <a href="en_cour">Résultats</a>
+      <a href="en_cour">Publish</a>
     </nav>
 
     <div class="content-container">
@@ -53,43 +53,6 @@
       </div>
     </div>
   </main>
-  <script>
-   document.addEventListener("DOMContentLoaded", function () {
-  // Récupérer les informations depuis localStorage
-  const firstName = localStorage.getItem("firstName");
-  const lastName = localStorage.getItem("lastName");
-  const userType = localStorage.getItem("userType");
-
-  // Vérifier l'utilisateur et son rôle
-  if (!firstName || !lastName || userType !== "Enseignant") {
-    alert("Veuillez vous connecter en tant qu'enseignant.");
-    window.location.href = "form.html";
-    return;
-  }
-  else if(matchedUser.userType==='Enseignant'){
-    window.location.href = "espace_ensignet_interface";
-
-  }
-      // Affiche le nom d’utilisateur dans la topbar
-      document.getElementById("username").textContent = ${firstName} ${lastName};
   
-      // Affiche/masque le menu déroulant
-      const userInfoBtn = document.getElementById("userInfoBtn");
-      userInfoBtn.addEventListener("click", function () {
-        const dropdown = document.getElementById("userDropdown");
-        const arrow = document.querySelector(".arrow");
-        dropdown.style.display =
-          dropdown.style.display === "block" ? "none" : "block";
-        arrow.classList.toggle("up");
-      });
-  
-      // Déconnexion : vide le localStorage et redirige
-      document.getElementById("logoutLink").addEventListener("click", function (e) {
-        e.preventDefault();
-        localStorage.clear();
-        window.location.href = "form.html";
-      });
-    });
-  </script>
 </body>
 </html>
