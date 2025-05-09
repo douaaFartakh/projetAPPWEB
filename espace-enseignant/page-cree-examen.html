@@ -4,7 +4,6 @@
   <meta charset="UTF-8">
   <title>Création d'examen - FOXMinds</title>
   <link rel="stylesheet" href="page-crée-examen.css"/>
-  <link rel="shortcut icon" href="iconimage.png" type="image/jpg" />
 </head>
 <body>
   <div class="container">
@@ -55,6 +54,8 @@
     </fieldset>
 
     <button onclick="enregistrerExamen()">Enregistrer l'examen</button>
+    <button onclick="supprimerExamen()">🗑️ Supprimer l'examen</button>
+
     <div id="examLink" style="display:none;"></div>
 
   </div>
@@ -200,7 +201,6 @@
       examData.questions.splice(index, 1);
       afficherQuestions();
     }
-
     function enregistrerExamen() {
       if (examData.questions.length === 0) {
         alert("Veuillez ajouter au moins une question avant d'enregistrer l'examen.");
@@ -209,20 +209,32 @@
 
       const examId = encodeURIComponent(examData.title.replace(/\s+/g, '-').toLowerCase()) + "-" + new Date().getTime();
       localStorage.setItem(examId, JSON.stringify(examData));
+      localStorage.setItem("lastExamId", examId);
 
-      const examLink = `${window.location.origin}/exam.html?id=${examId}`;
-      document.getElementById("examLink").innerHTML = `IMPORTANT : Veuillez enregistrer les données aprés chaque modification des qestions <br/> Votre examen est enregistré. Voici votre lien : <a href="${examLink}" target="_blank">${examLink}</a>`;
+  // Générer un lien local basé sur l'ID de l'examen
+      const examLink = `exam-etudiant.html?id=${examId}`;
+
+  // Afficher le lien local
+      document.getElementById("examLink").innerHTML = `IMPORTANT : Veuillez enregistrer les données après chaque modification des questions <br/> Votre examen est enregistré. Voici votre lien : <a href="${examLink}" target="_blank">${examLink}</a>`;
       document.getElementById("examLink").style.display = "block";
     }
-   
-   document.addEventListener("DOMContentLoaded", () => {
-    const titre = localStorage.getItem("examTitre");
-    if (titre) {
-      examTitle.value = titre;
-      examLegend.textContent = titre;
-      examData.title = titre;
+
+    function supprimerExamen() {
+      const lastExamId = localStorage.getItem("lastExamId");
+        if (!lastExamId) {
+          alert("Aucun examen à supprimer.");
+          return;
+        }
+
+      const confirmDelete = confirm("Êtes-vous sûr de vouloir supprimer l'examen ?");
+        if (confirmDelete) {
+          localStorage.removeItem(lastExamId);
+          localStorage.removeItem("lastExamId");
+          alert("Examen supprimé avec succès !");
+          location.reload(); // Recharge la page
+        }
     }
-  });
+
   </script>
 </body>
 </html>
