@@ -12,4 +12,6 @@ function submitExamForm(event) {
   window.location.href = 'page-cree-examen.html';
 }
 
-document.getElementById("examForm").addEventListener("submit", submitExamForm);
+document.addEventListener("DOMContentLoaded", function () {
+  document.getElementById("exam-form").addEventListener("submit", submitExamForm);
+});
