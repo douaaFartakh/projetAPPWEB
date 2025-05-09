@@ -19,17 +19,12 @@ body {
 }
 
 header {
-  width: 100%;
-  background-color: rgba(212, 157, 245, 0.7);
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 20px;
-  flex-wrap: wrap;
-  gap: 10px;
- 
-  
-}
+    background-color: rgba(212, 157, 245, 0.7);
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 20px;
+  }
 
 .logo-section {
     display: flex;
@@ -47,7 +42,7 @@ header {
 .site-name {
    
     font-size: 2.55em;
-    color: #ffffff;
+    color: #6a1b9a;
     margin: 0;
 }
 
@@ -62,6 +57,7 @@ header {
   list-style: none;
   display: flex;
   gap: 30px;
+    padding-top: 20px;
   
 }
 
