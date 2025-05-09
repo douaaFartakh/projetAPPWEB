@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="shortcut icon" href="iconimage.png" type="image/jpeg">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="ancien-examen-acces.css" />
+  <script src="ancien-examen-acces.js"></script>
+  <title>Portail des Examens</title>
+  
+   
+</head>
+<body>
+  <header>
+    <div class="logo-section">
+      <img src="iconimage.png" alt="Logo" class="logo" />
+      <h1 class="site-name">FOXMind</h1>
+    </div>
+    <nav class="nav-header">
+      <ul class="nav-links">
+        <li><a href="espace_ensignet_interface.html">Accueil</a></li>
+        <li><a href="qa.html">Questions</a></li>
+        <li><a href="etapes.html">Etapes</a></li>
+        <li class="user-menu">
+          <div class="user-info" id="userInfoBtn">
+            <i class="fas fa-user-circle user-icon"></i>
+            <span id="username">Nom d'utilisateur</span>
+            <span class="arrow">▾</span>
+          </div>
+          <div class="dropdown-content" id="dropdownContent">
+           
+            <a href="from.html" id="logoutBtn">Déconnexion</a>
+          </div>
+        </li>
+      </ul>
+    </nav>
+  </header>
+  
+
+  <div class="container">
+    <main class="main-section">
+      <div class="search-section">
+        <input type="text" id="searchInput" placeholder="Rechercher un examen (nom ou lien)">
+        <button onclick="searchFiles()">Rechercher</button>
+        
+      </div>
+      <div id="examsContainer"></div>
+
+      <div class="results" id="resultsSection">
+        <h2>Résultats de la recherche</h2>
+        <div id="searchResults"></div>
+      </div>
+
+      <div class="documents">
+        <h2>Fichiers des examens</h2>
+        <div id="documentList" class="empty-state">Aucun examen disponible pour le moment !</div>
+      </div>
+    </main>
+  </div>
+
+  
+</body>
+</html>

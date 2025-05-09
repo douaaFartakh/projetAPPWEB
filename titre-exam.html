@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="titre_exam.css" />
+  <link rel="shortcut icon" href="iconimage.png" type="image/jpg" />
+  <title>Inscription examens</title>
+  <script src="titre-exam.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+</head>
+ 
+<body>
+  <header>
+    <div class="logo-section">
+      <img src="fox logo.png" alt="Logo" class="logo" />
+      <h1 class="site-name">FOXMind</h1>
+    </div>
+    <nav class="nav-header">
+      <ul class="nav-links">
+        <li><a href="espace_ensignet_interface.html">Accueil</a></li>
+        <li><a href="qa.html">Questions</a></li>
+        <li><a href="etapes.html">Etapes</a></li>
+        <li class="user-menu">
+          <div class="user-info" id="userInfoBtn">
+            <i class="fas fa-user-circle user-icon"></i>
+            <span id="username">Nom d'utilisateur</span>
+            <i class="fas fa-chevron-down arrow-icon"></i>
+          </div>
+          <div class="dropdown-content" id="dropdownContent">
+            
+            <a href="from.html" id="logoutBtn">Déconnexion</a>
+          </div>
+        </li>
+      </ul>
+    </nav>
+  </header>
+  
+
+  <div class="container">
+   
+    <main class="main-section">
+      <div class="form-container">
+        <form id="exam-form" class="form" onsubmit="submitExamForm(event)">
+          <h2>Création d'examen</h2>
+          <p>Remplissez les champs ci-dessous pour créer un nouvel examen.</p>
+
+         
+           </title><input type="text" id="titre" name="titre" placeholder="Titre de l'examen" required />
+
+          
+          <textarea id="description" name="description" placeholder="Description" rows="5" required></textarea>
+
+          
+
+          
+          <select id="annee" name="annee" required>
+            <option value="" disabled selected>Sélectionnez une année</option>
+            <option value="1ere">1ère Année</option>
+            <option value="2eme">2ème Année</option>
+            <option value="3eme">3ème Année</option>
+          </select>
+
+
+
+
+          <select id="semestre" name="semestre" required>
+            <option value="" disabled selected>Sélectionnez une semestre</option>
+            <option value="S1">S1</option>
+            <option value="S2">S2</option>
+            <option value="S3">S3</option>
+            <option value="S4">S4</option>
+            <option value="S5">S5</option>
+            <option value="S6">S6</option>
+          </select>
+
+
+          
+          <select id="filiere" name="filiere" required>
+            <option value="" disabled selected>Sélectionnez une filière</option>
+            <option>Informatique</option>
+            <option>Mathématiques</option>
+            <option>Physique</option>
+            <option>Chimie</option>
+            <option>Biologie</option>
+            <option>Géologie</option>
+            <option>Droit</option>
+            <option>Économie</option>
+            <option>Gestion</option>
+            <option>Génie Informatique</option>
+            <option>Génie des Procédés</option>
+            <option>Gestion des Entreprises</option>
+            <option>Techniques de Management</option>
+            <option>Langues Étrangères Appliquées</option>
+            <option>Littérature Française</option>
+            <option>Études Arabes</option>
+            <option>Philosophie</option>
+            <option>Médecine Dentaire</option>
+          </select>
+
+         
+          <select id="groupe" name="groupe" required>
+            <option value="" disabled selected>Sélectionnez un groupe</option>
+            <option value="A">Groupe A</option>
+            <option value="B">Groupe B</option>
+            <option value="C">Groupe C</option>
+          </select>
+
+          
+          <button type="submit">Suivant</button>
+        </form>
+      </div>
+    </main>
+  </div>
+
+ 
+</body>
+</html>
