@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Résultats de l'Examen</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="page-résultat.css">
+    </head>
+<body>
+    <header>
+        <div class="logo-section">
+            <img src="iconimage.png" alt="Logo" class="logo" />
+            <h1 class="site-name">FoxMind</h1>
+        </div>
+        <nav class="nav-top">
+            <ul class="nav-links">
+                <li><a href="interface-etudiant.html">Accueil</a></li>
+                <li><a href="qa.html">Questions</a></li>
+                 <div class="user-menu">
+                <div class="user-info" >
+                    <i class="fas fa-user-circle user-icon"></i>
+                    <span id="username">Nom d’utilisateur</span>
+                    <span class="arrow">▾</span>
+                </div>
+                <div class="dropdown" id="userDropdown">
+                    <a href="form.html" id="logoutLink()">Déconnexion</a>
+                </div>
+            </div>
+        </ul>
+        </nav>
+    </header>
+
+    <div class="result-container">
+        <h2 id="completion-message">Félisitaion vous avez completrer votre examen !</h2></br></br>
+        <p id="score"></p>
+        <ul>
+            <br><br>
+            <li>Mention excellent : si votre score est égal à 100</li>
+            <li>Mention très bien : si votre score est entre 80 et 100</li>
+            <li>Mention bien : si votre score est entre 60 et 80</li>
+            <li>Mention moyen : si votre score est entre 50 et 60</li>
+            <li>Pas mal : si votre score est entre 30 et 50</li>
+            <li>Il faut bien se préparer si inférieur à 30</li>
+        </ul><br><br>
+         <button id="return-btn" onclick="returnToHome()">Retour à votre espace étudiant(e) </button>
+    </div>
+<script src="page-résultat.js"></script>
+    
+</body>
+</html>

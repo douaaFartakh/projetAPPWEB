@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="iconimage.png" type="image/png" />
+    <link rel="stylesheet" href="exam-etudiant.css" />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+    />
+    <title>Examen Étudiant</title>
+  </head>
+  <body>
+    <header>
+      <div class="logo-section">
+        <img src="iconimage.png" alt="Logo" class="logo" />
+        <h1 class="site-name">FOXMind</h1>
+      </div>
+      <nav class="nav-links">
+        <div class="user-menu">
+          <div class="user-info" onclick="toggleMenu()">
+            <i class="fas fa-user-circle user-icon"></i>
+            <span id="username">Nom d’utilisateur</span>
+            <span class="arrow">▾</span>
+          </div>
+          <div class="dropdown" id="userDropdown">
+            <a href="form.html" onclick="logout()">Déconnexion</a>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <div class="exam-container">
+        <h2 id="exam-title">Examen</h2>
+        <div id="timer" style="display: none;">Temps restant : <span id="time">0</span> secondes</div>
+        <div id="question-container" style="display: none;">
+            <h2 id="question-text"></h2>
+            <div id="media-display"></div>
+            <div id="options"></div>
+            <input type="text" id="direct-answer" style="display: none;" placeholder="Votre réponse">
+        </div>
+        <button id="next-btn" disabled style="display: none;">Suivant</button>
+        <div id="result-container" style="display: none;">
+            <p id="completion-message">Vous avez terminé l'examen !</p>
+            <button id="result-btn">Voir le résultat</button>
+        </div>
+        <div id="no-questions-message" style="display: none;">Aucune question disponible pour le moment. Veuillez demander au professeur d'ajouter des questions.</div>
+    </div>
+    <script src="exam-etudiant.js"></script>
+  </body>
+</html>
