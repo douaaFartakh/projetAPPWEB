@@ -1,23 +1,19 @@
-
-   document.addEventListener("DOMContentLoaded", function () {
-
+document.addEventListener("DOMContentLoaded", function () {
+ 
   const firstName = localStorage.getItem("firstName");
   const lastName = localStorage.getItem("lastName");
   const userType = localStorage.getItem("userType");
+
 
   if (!firstName || !lastName || userType !== "Enseignant") {
     alert("Veuillez vous connecter en tant qu'enseignant.");
     window.location.href = "form.html";
     return;
   }
-  else if(matchedUser.userType==='Enseignant'){
-    window.location.href = "espace_ensignent_interface.html";
-
-  }
-
-      document.getElementById("username").textContent =`${firstName} ${lastName}`;
+      
+      document.getElementById("username").textContent = `${firstName} ${lastName}`;
   
-  
+      
       const userInfoBtn = document.getElementById("userInfoBtn");
       userInfoBtn.addEventListener("click", function () {
         const dropdown = document.getElementById("userDropdown");
