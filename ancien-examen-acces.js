@@ -82,7 +82,8 @@ function searchFiles() {
     exam.name.toLowerCase().includes(query) || 
     exam.filiere.toLowerCase().includes(query) ||
     exam.semestre.toLowerCase().includes(query) ||
-    exam.professor.toLowerCase().includes(query)
+    exam.professor.toLowerCase().includes(query) ||
+    exam.link.toLowerCase().includes(query)
   );
 
   const searchResults = document.getElementById('searchResults');
