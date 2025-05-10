@@ -14,9 +14,12 @@ function submitExamForm(event) {
 
   const titre = document.getElementById('titre').value;  
 
+  localStorage.setItem('examTitle', titre);
+
   window.location.href = 'page-cree-examen.html';
 }
 
 document.addEventListener("DOMContentLoaded", function () {
   document.getElementById("exam-form").addEventListener("submit", submitExamForm);
 });
+
