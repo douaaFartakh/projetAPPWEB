@@ -55,12 +55,21 @@
 
     <button onclick="enregistrerExamen()">Enregistrer l'examen</button>
     <button onclick="supprimerExamen()">🗑️ Supprimer l'examen</button>
-
+    <button onclick="window.location.href='espace_ensignet_interface.html'">Retourner vers éspace ensignent </button>
+ 
     <div id="examLink" style="display:none;"></div>
-<button onclick="window.location.href='espace_ensignet_interface.html'">Retourner vers éspace ensignent </button>
+
   </div>
 
-<script>
+  <script>
+    const typeSelect = document.getElementById("type_question");
+    const qcmForm = document.getElementById("qcmForm");
+    const directeForm = document.getElementById("directeForm");
+    const questionsList = document.getElementById("questionsList");
+    const questionsContent = document.getElementById("questionsContent");
+    const examTitle = document.getElementById("examTitle");
+    const examLegend = document.getElementById("examLegend");
+
     const examData = {
       title: "",
       questions: []
@@ -226,8 +235,15 @@
           location.reload(); // Recharge la page
         }
     }
+   document.addEventListener("DOMContentLoaded", () => {
+    const titre = localStorage.getItem("examTitre");
+    if (titre) {
+      examTitle.value = titre;
+      examLegend.textContent = titre;
+      examData.title = titre;
+    }
+  });
 
   </script>
 </body>
 </html>
-
