@@ -235,14 +235,14 @@
           location.reload(); // Recharge la page
         }
     }
-   document.addEventListener("DOMContentLoaded", () => {
-    const titre = localStorage.getItem("examTitre");
-    if (titre) {
-      examTitle.value = titre;
-      examLegend.textContent = titre;
-      examData.title = titre;
-    }
-  });
+  document.addEventListener("DOMContentLoaded", function () {
+  const examTitle = localStorage.getItem('examTitle');
+  if (examTitle) {
+    document.getElementById("examTitleDisplay").textContent = examTitle;
+  } else {
+    document.getElementById("examTitleDisplay").textContent = "Aucun titre défini";
+  }
+});
 
   </script>
 </body>
